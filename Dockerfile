@@ -15,9 +15,10 @@ RUN \
  apt-get update && \
  apt-get install -y \
 	openjdk-8-jre-headless \
-	unifi \
-	wget && \
-
+	wget &&\
+	wget -nv https://www.ubnt.com/downloads/unifi/5.4.7-36a141f5fa/unifi_sysvinit_all.deb && \
+  	dpkg --install unifi_sysvinit_all.deb && \
+  	rm unifi_sysvinit_all.deb && \
 # cleanup
  apt-get clean && \
  rm -rfv /tmp/* /var/lib/apt/lists/* /var/tmp/*
